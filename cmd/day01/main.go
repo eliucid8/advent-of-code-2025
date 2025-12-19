@@ -1,32 +1,32 @@
 package main
 
 import (
-    "fmt"
-    "log"
+	"fmt"
+	"log"
 	"strconv"
 
-    "github.com/eliucid8/advent-of-code-25/internal/util"
+	"github.com/eliucid8/advent-of-code-2025/internal/util"
 )
 
 func part1() string {
-    lines, err := util.ReadLines("data/day01/input.txt")
-    if err != nil {
-        log.Fatalf("read input: %v", err)
-    }
+	lines, err := util.ReadLines("data/day01/input.txt")
+	if err != nil {
+		log.Fatalf("read input: %v", err)
+	}
 
-    displacement := 50
+	displacement := 50
 	sum := 0
-    for _, l := range lines {
-        if l == "" {
-            continue
-        }
+	for _, l := range lines {
+		if l == "" {
+			continue
+		}
 		distance, _ := strconv.Atoi(l[1:])
 		if l[0] == 'R' {
 			displacement += distance
 		} else {
 			displacement -= distance
 		}
-	    displacement %= 100
+		displacement %= 100
 		if displacement < 0 {
 			displacement += 100
 		}
@@ -34,22 +34,22 @@ func part1() string {
 		if displacement == 0 {
 			sum += 1
 		}
-    }
+	}
 	return strconv.Itoa(sum)
 }
 
 func part2() string {
-    lines, err := util.ReadLines("data/day01/input.txt")
-    if err != nil {
-        log.Fatalf("read input: %v", err)
-    }
+	lines, err := util.ReadLines("data/day01/input.txt")
+	if err != nil {
+		log.Fatalf("read input: %v", err)
+	}
 
-    displacement := 50
+	displacement := 50
 	sum := 0
-    for _, l := range lines {
-        if l == "" {
-            continue
-        }
+	for _, l := range lines {
+		if l == "" {
+			continue
+		}
 		distance, _ := strconv.Atoi(l[1:])
 		// add 1 to distance for every 100 in the turn.
 		sum += distance / 100
@@ -70,17 +70,17 @@ func part2() string {
 		}
 		// fmt.Println("displacement:", displacement, " distance:", distance, " sum:", sum)
 
-	    displacement %= 100
+		displacement %= 100
 		if displacement < 0 {
 			displacement += 100
 		}
-    }
+	}
 	return strconv.Itoa(sum)
 }
 
 func main() {
 	answer1 := part1()
-    fmt.Println("part 1:", answer1)
+	fmt.Println("part 1:", answer1)
 	answer2 := part2()
-    fmt.Println("part 2:", answer2)
+	fmt.Println("part 2:", answer2)
 }

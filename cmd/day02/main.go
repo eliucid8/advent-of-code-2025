@@ -4,7 +4,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/you/advent_of_code_go/internal/util"
+    "github.com/eliucid8/advent-of-code-25/internal/util"
 )
 
 func main() {
